@@ -1,4 +1,4 @@
-source "vagrant" "rotabull_dev" {
+source "vagrant" "rotabull-dev" {
   provider     = "virtualbox"
   source_path  = "debian/buster64"
   communicator = "ssh"
@@ -6,15 +6,15 @@ source "vagrant" "rotabull_dev" {
 }
 
 build {
-  name    = "rotabull_dev"
-  sources = ["sources.vagrant.rotabull_dev"]
+  name    = "rotabull-dev"
+  sources = ["sources.vagrant.rotabull-dev"]
 
   provisioner "shell" {
-    script          = "./root_provision.sh"
+    script          = "./rotabull_root_provision.sh"
     execute_command = "chmod +x {{ .Path }}; sudo {{ .Path }}"
   }
 
   provisioner "shell" {
-    script = "./provision.sh"
+    script = "./rotabull_provision.sh"
   }
 }
