@@ -6,15 +6,6 @@ build {
   ]
 
   provisioner "shell" {
-    execute_command = "echo 'vagrant' | sudo -S env {{ .Vars }} {{ .Path }}"
-    script          = "rws-dev/root_provision.sh"
-  }
-
-  provisioner "shell" {
-    script = "rws-dev/provision.sh"
-  }
-
-  provisioner "shell" {
     execute_command   = "echo 'vagrant' | sudo -S env {{ .Vars }} {{ .Path }}"
     expect_disconnect = true
     environment_vars  = ["HOME_DIR=/home/vagrant"]
@@ -31,6 +22,15 @@ build {
         "bento/packer_templates/debian/scripts/cleanup.sh",
         "bento/packer_templates/_common/minimize.sh",
     ]
+  }
+
+  provisioner "shell" {
+    execute_command = "echo 'vagrant' | sudo -S env {{ .Vars }} {{ .Path }}"
+    script          = "rws-dev/root_provision.sh"
+  }
+
+  provisioner "shell" {
+    script = "rws-dev/provision.sh"
   }
   
   post-processor "vagrant" {
