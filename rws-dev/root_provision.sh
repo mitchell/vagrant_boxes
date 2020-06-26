@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### set timezone and locale ###
+### timezone and locale ###
 # set timezone
 ln -fs /usr/share/zoneinfo/US/Eastern /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
@@ -12,11 +12,7 @@ locale-gen
 ### personal ###
 # deps for my dotfiles
 apt-get update
-apt-get install -y git curl rsync kitty neovim tmux
-
-### project dependencies ###
-# deps for rotabull
-apt-get install -y chromium-driver inotify-tools
+apt-get install -y git curl rsync tmux kitty-terminfo
 
 ### fish shell ###
 # deps for installing fish
@@ -63,9 +59,10 @@ apt-get install -y \
   libxslt-dev libffi-dev libtool \
   unixodbc-dev unzip curl
 
-# deps for asdf-erlang
-apt-get install -y \
-  build-essential autoconf m4 \
-  libncurses5-dev libwxgtk3.0-dev libgl1-mesa-dev \
-  libglu1-mesa-dev libpng-dev libssh-dev \
-  unixodbc-dev xsltproc fop
+### awscli ###
+# install awscliv2
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+./aws/install
+rm awscliv2.zip
+rm -r ./aws

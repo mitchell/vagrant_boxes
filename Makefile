@@ -5,22 +5,17 @@ SHELL := fish
 all: rws-dev rotabull-dev
 
 clean:
-	for dir in (ls -d output-*); cd $$dir; vagrant destroy -f; cd ..; rm -r $$dir; end
+	rm *.box
 
-rotabull-dev:
-	packer build ./rotabull-dev.pkr.hcl
+rotabull-dev: %.libvirt %.vbox
 
-rws-dev:
-	packer build ./rws-dev.pkr.hcl
+rws-dev: %.libvirt %.vbox
 
 %.libvirt:
-	cp ./output-$*/package.box ./output-$*/$*.box
-	vagrant mutate ./output-$*/$*.box libvirt
-	rm ./output-$*/$*.box
+	packer build -only=qemu.debian10 $*
 
 %.vbox:
-	vagrant box add ./output-$*/package.box --name $*
+	packer build -only=virtualbox-iso.debian10 $*
 
 %.clean:
-	cd ./output-$*; and vagrant destroy -f
-	rm -rf ./output-$*/
+	rm $*.box

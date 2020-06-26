@@ -32,6 +32,6 @@ asdf global elixir 1.10.2-otp-22
 
 asdf plugin add nodejs
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-asdf install nodejs 12.16.2
-asdf global nodejs 12.16.2
+asdf install nodejs 12.18.1
+asdf global nodejs 12.18.1
 npm -g install npm@6.14

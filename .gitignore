@@ -1,2 +1,4 @@
 output-rotabull-dev/
 output-rws-dev/
+packer_cache/
+*.box
