@@ -23,15 +23,15 @@ asdf install neovim 0.4.3
 asdf global neovim 0.4.3
 
 asdf plugin add erlang
-asdf install erlang 22.3
-asdf global erlang 22.3
+asdf install erlang 22.2.3
+asdf global erlang 22.2.3
 
 asdf plugin add elixir
-asdf install elixir 1.10.2-otp-22
-asdf global elixir 1.10.2-otp-22
+asdf install elixir 1.9.4-otp-22
+asdf global elixir 1.9.4-otp-22
 
 asdf plugin add nodejs
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-asdf install nodejs 12.18.1
-asdf global nodejs 12.18.1
+asdf install nodejs 12.18.0
+asdf global nodejs 12.18.0
 npm -g install npm@6.14
