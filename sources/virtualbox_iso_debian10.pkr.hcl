@@ -1,6 +1,6 @@
 source "virtualbox-iso" "debian10" {
   iso_url       = "https://cdimage.debian.org/debian-cd/10.4.0/amd64/iso-cd/debian-10.4.0-amd64-netinst.iso"
-  iso_checksum  = "https://cdimage.debian.org/debian-cd/10.4.0/amd64/iso-cd/SHA512SUMS"
+  iso_checksum  = "file:https://cdimage.debian.org/debian-cd/10.4.0/amd64/iso-cd/SHA512SUMS"
   guest_os_type = "Debian_64"
 
   communicator            = "ssh"
