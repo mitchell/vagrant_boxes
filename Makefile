@@ -1,15 +1,15 @@
-.PHONY: all clean test rotabull-dev rws-dev %.libvirt %.vbox %.clean
+.PHONY: all clean test virtualbox libvirt %.all %.libvirt %.vbox %.clean %.test
 
+.ONESHELL:
 SHELL := fish
 
-all: rws-dev rotabull-dev
+builds := rws-dev rotabull-dev
 
-clean:
-	rm *.box
-
-rotabull-dev: %.libvirt %.vbox
-
-rws-dev: %.libvirt %.vbox
+virtualbox: test clean $(patsubst %,%.vbox,$(builds))
+libvirt: test clean $(patsubst %,%.libvirt,$(builds))
+all: virtualbox libvirt
+test: $(patsubst %,%.test,$(builds))
+clean: $(patsubst %,%.clean,$(builds))
 
 %.libvirt:
 	packer build -only=qemu.debian10 $*
@@ -18,4 +18,7 @@ rws-dev: %.libvirt %.vbox
 	packer build -only=virtualbox-iso.debian10 $*
 
 %.clean:
-	rm $*.box
+	rm -f $*.box
+
+%.test:
+	packer validate $*
