@@ -6,6 +6,7 @@ source "virtualbox-iso" "debian10" {
   communicator            = "ssh"
   ssh_username            = "vagrant"
   ssh_password            = "vagrant"
+  ssh_timeout             = "20m"
   guest_additions_path    = "VBoxGuestAdditions_{{.Version}}.iso"
   virtualbox_version_file = ".vbox_version"
 
