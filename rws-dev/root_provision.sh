@@ -14,6 +14,19 @@ locale-gen
 apt-get update
 apt-get install -y git curl rsync tmux kitty-terminfo
 
+### mitm proxy ###
+# install mitm proxy
+mkdir mitm
+cd mitm
+curl -fsSL https://snapshots.mitmproxy.org/5.1.1/mitmproxy-5.1.1-linux.tar.gz > mitmproxy.tar.gz
+tar -xvf mitmproxy.tar.gz
+cp mitmproxy /usr/local/bin/
+cp mitmdump /usr/local/bin/
+cp mitmweb /usr/local/bin/
+cd ..
+rm -r mitm
+
+
 ### fish shell ###
 # deps for installing fish
 apt-get install -y wget gpg
