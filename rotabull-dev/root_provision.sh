@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### set timezone and locale ###
+### set system settings ###
 # set timezone
 ln -fs /usr/share/zoneinfo/US/Eastern /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
@@ -8,6 +8,14 @@ dpkg-reconfigure -f noninteractive tzdata
 # set locale
 sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
+
+# set inotify max watches
+cat <<- EOF >> /etc/sysctl.conf
+
+  # Set inotify max watches
+  fs.inotify.max_user_watches=524288
+EOF
+
 
 ### personal ###
 # deps for my dotfiles
