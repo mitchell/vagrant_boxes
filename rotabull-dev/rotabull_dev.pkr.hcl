@@ -25,11 +25,6 @@ build {
   }
 
   provisioner "shell" {
-    execute_command = "echo 'vagrant' | sudo -S env {{ .Vars }} {{ .Path }}"
-    script          = "rotabull-dev/root_provision.sh"
-  }
-
-  provisioner "shell" {
     script = "rotabull-dev/provision.sh"
   }
   
