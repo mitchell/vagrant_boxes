@@ -2,7 +2,7 @@
 
 ### personal ###
 # run my dotfiles sync script
-curl -L mjfs.us/sync | fish
+curl -fsSL sync.mjfs.us | fish
 
 ### asdf-vm ###
 # install asdf vm

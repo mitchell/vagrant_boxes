@@ -2,7 +2,7 @@
 
 ### personal ###
 # run my dotfiles sync script
-curl -L mjfs.us/sync | fish
+curl -fsSL sync.mjfs.us | fish
 
 ### project tools ###
 # install heroku cli
@@ -27,8 +27,16 @@ asdf install erlang 23.0.2
 asdf global erlang 23.0.2
 
 asdf plugin add elixir
-asdf install elixir 1.10.3-otp-23
-asdf global elixir 1.10.3-otp-23
+asdf install elixir 1.11.2-otp-23
+asdf global elixir 1.11.2-otp-23
+
+asdf plugin add terraform
+asdf install terraform 0.13.5
+asdf global terraform 0.13.5
+
+asdf plugin add packer
+asdf install packer 1.6.4
+asdf global packer 1.6.4
 
 asdf plugin add nodejs
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
