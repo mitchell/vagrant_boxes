@@ -40,6 +40,6 @@ asdf global packer 1.6.4
 
 asdf plugin add nodejs
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-asdf install nodejs 12.18.2
-asdf global nodejs 12.18.2
-npm -g install npm@6.14
+asdf install nodejs 12.18.4
+asdf global nodejs 12.18.4
+npm install --global npm
