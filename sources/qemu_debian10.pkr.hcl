@@ -1,13 +1,13 @@
 source "qemu" "debian10" {
-  iso_url       = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.9.0-amd64-netinst.iso"
-  iso_checksum  = "file:https://cdimage.debian.org/debian-cd/10.9.0/amd64/iso-cd/SHA512SUMS"
+  iso_url       = "https://cdimage.debian.org/cdimage/archive/10.10.0/amd64/iso-cd/debian-10.10.0-amd64-netinst.iso"
+  iso_checksum  = "file:https://cdimage.debian.org/cdimage/archive/10.10.0/amd64/iso-cd/SHA512SUMS"
 
   communicator = "ssh"
   ssh_username = "vagrant"
   ssh_password = "vagrant"
 
   vm_name    = "debian10"
-  headless   = false
+  headless   = true
   cpus       = 8
   memory     = 8192
   disk_size  = "40G"

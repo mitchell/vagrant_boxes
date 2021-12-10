@@ -27,8 +27,8 @@ asdf install erlang 23.0.2
 asdf global erlang 23.0.2
 
 asdf plugin add elixir
-asdf install elixir 1.11.2-otp-23
-asdf global elixir 1.11.2-otp-23
+asdf install elixir 1.12.3-otp-23
+asdf global elixir 1.12.3-otp-23
 
 asdf plugin add terraform
 asdf install terraform 0.13.5
@@ -39,7 +39,6 @@ asdf install packer 1.6.4
 asdf global packer 1.6.4
 
 asdf plugin add nodejs
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 asdf install nodejs 12.18.4
 asdf global nodejs 12.18.4
 npm install --global npm
